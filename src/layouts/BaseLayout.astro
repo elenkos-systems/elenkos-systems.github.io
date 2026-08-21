@@ -1,0 +1,83 @@
+---
+import globalStyles from '../styles/global.css?url';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const canonicalPath = Astro.url.pathname === '/404/' ? '/404.html' : Astro.url.pathname;
+const canonical = new URL(canonicalPath, Astro.site);
+const socialImage = new URL('/og.png', Astro.site);
+const path = Astro.url.pathname;
+
+const nav = [
+  { href: '/model/', label: 'The model' },
+  { href: '/safeguards/', label: 'Safeguards' },
+  { href: '/for-engineers/', label: 'For engineers' },
+  { href: '/for-teams/', label: 'For teams' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; base-uri 'none'; connect-src 'none'; font-src 'self'; form-action 'none'; frame-src 'none'; img-src 'self' data:; media-src 'none'; object-src 'none'; script-src 'none'; style-src 'self'; upgrade-insecure-requests"
+    />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#f2eee4" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href={globalStyles} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Elenkos Systems" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content="Elenkos Systems: independent judgment, meaningful rewards" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="site-header">
+      <a class="wordmark" href="/" aria-label="Elenkos Systems home">
+        <span class="wordmark-mark" aria-hidden="true">E</span>
+        <span>Elenkos Systems</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        {nav.map((item) => (
+          <a href={item.href} aria-current={path.startsWith(item.href) ? 'page' : undefined}>{item.label}</a>
+        ))}
+      </nav>
+    </header>
+    <main id="content">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div>
+        <p class="footer-name">Elenkos Systems</p>
+        <p>Independent evaluation for bugs that deserve a serious answer.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/model/">Evaluation model</a>
+        <a href="/safeguards/">Safeguards</a>
+        <a href="https://github.com/elenkos-systems">Production engineering</a>
+        <a href="https://github.com/elenkos-systems-test">Independent test fleet</a>
+        <a href="https://github.com/elenkos-systems/elenkos-systems.github.io/security/advisories/new">Report a security issue</a>
+      </div>
+      <p class="fine-print">Flat-rate compensation, commission eligibility, credit value, and payment timing are governed by written engagement terms. Credits are not a guarantee of payment.</p>
+    </footer>
+  </body>
+</html>

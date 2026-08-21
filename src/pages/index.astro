@@ -1,0 +1,124 @@
+---
+import ProcessDiagram from '../components/ProcessDiagram.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Elenkos Systems — Find the failures that matter"
+  description="Independent AI and blind human bug evaluation for meaningful quality work, auditable credits, and discrepancy escalation."
+>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Quality engineering / independent evaluation</p>
+      <h1>Find the failures that matter.</h1>
+      <p class="lede">
+        Elenkos pairs automated analysis with a blind human judgment. When the two independent readings agree, the reporter and reviewer can both earn credits. When they do not, the bug gets more scrutiny—not a quiet average.
+      </p>
+      <div class="actions">
+        <a class="button" href="/for-teams/">Bring us a product</a>
+        <a class="button secondary" href="/for-engineers/">Work as an engineer in test</a>
+      </div>
+    </div>
+
+    <aside class="verdict-board" aria-label="Independent evaluation summary">
+      <div class="board-header"><span>Evaluation 0241</span><span>State: independent</span></div>
+      <div class="lane ai">
+        <span class="lane-tag">AI lane</span>
+        <p>Evidence, reproducibility, scope, affected users, and severity are assessed.</p>
+      </div>
+      <div class="lane human">
+        <span class="lane-tag">Human lane</span>
+        <p>A randomly assigned eligible engineer judges meaning and seriousness without AI cues.</p>
+      </div>
+      <div class="sealed"><span class="seal-dot"></span><span>Independent by design · compare only after human submission</span></div>
+      <div class="outcomes">
+        <div class="outcome agree"><strong>Agreement earns credits</strong><p>Both the original reporter and the blind human reviewer can qualify.</p></div>
+        <div class="outcome escalate"><strong>Disagreement gets more scrutiny</strong><p>A material gap opens additional human review and adjudication.</p></div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="section">
+    <div class="section-intro">
+      <h2>Two readings. One accountable outcome.</h2>
+      <p>The AI cannot coach the assigned human. The assigned human cannot see the AI score before submitting. That separation makes agreement useful—and disagreement visible.</p>
+    </div>
+    <ProcessDiagram />
+  </section>
+
+  <section class="section">
+    <div class="section-intro">
+      <h2>A system that values signal.</h2>
+      <p>Bug volume is easy to game. Elenkos centers severity, meaningfulness, reproducibility, novelty, and observed impact so incentives point toward useful engineering evidence.</p>
+    </div>
+    <div class="stat-grid" aria-label="Model commitments">
+      <div class="stat"><strong>2</strong><p>independent judgments before comparison</p></div>
+      <div class="stat"><strong>0</strong><p>AI cues shown to the assigned human before submission</p></div>
+      <div class="stat"><strong>2×</strong><p>credit recipients when policy-defined agreement is reached</p></div>
+      <div class="stat"><strong>+H</strong><p>additional humans when a material discrepancy needs adjudication</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-intro">
+      <h2>Quality work with auditable rewards.</h2>
+      <p>The earlier Elenkos platform language still defines the product: quality engineering, independent adjudication, and a traceable path from evidence to outcome.</p>
+    </div>
+    <div class="cards">
+      <article class="card teal">
+        <p class="kicker">Evidence</p>
+        <h3>Reports that can survive scrutiny</h3>
+        <p>Reproduction steps, affected scope, novelty, and user impact stay attached to the finding instead of disappearing into a severity label.</p>
+      </article>
+      <article class="card amber">
+        <p class="kicker">Adjudication</p>
+        <h3>Independent before comparison</h3>
+        <p>AI and human assessments remain sealed from one another until submission, then deterministic policy records agreement or opens a discrepancy case.</p>
+      </article>
+      <article class="card red">
+        <p class="kicker">Audit</p>
+        <h3>Credits with reasons attached</h3>
+        <p>Assignments, reviews, policy versions, decisions, and credit eligibility are designed to be replayable and attributable without rewriting history.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="split">
+      <article>
+        <p class="eyebrow">For product teams</p>
+        <h2>Severity with reasons attached.</h2>
+        <p>Receive reproducible bug reports, independent seriousness assessments, explicit discrepancy cases, and an audit trail that distinguishes evidence from opinion.</p>
+        <ul class="signal-list">
+          <li>Evidence-first bug qualification</li>
+          <li>Versioned scoring and adjudication policy</li>
+          <li>Clear escalation instead of hidden disagreement</li>
+        </ul>
+        <div class="actions"><a class="button secondary" href="/for-teams/">See the team model</a></div>
+      </article>
+      <article>
+        <p class="eyebrow">For QA engineers</p>
+        <h2>Get paid for judgment, not noise.</h2>
+        <p>Engineers work at written flat rates and may earn commission-linked credits when independent review confirms the seriousness and value of a report.</p>
+        <ul class="signal-list">
+          <li>Blind, conflict-aware review assignments</li>
+          <li>Credits for both useful reporting and useful review</li>
+          <li>Escalation when the evidence does not line up</li>
+        </ul>
+        <div class="actions"><a class="button secondary" href="/for-engineers/">See the engineer model</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="callout">
+      <p class="eyebrow">Built for scrutiny</p>
+      <h2>Independent first. Explainable after.</h2>
+      <p>Elenkos is being built so assignments, submissions, reveals, discrepancy decisions, and credits can be traced without exposing a sealed assessment to the wrong person.</p>
+      <div class="actions">
+        <a class="button" href="/safeguards/">Read the safeguards</a>
+        <a class="button secondary" href="https://github.com/elenkos-systems-test">See independent verification</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

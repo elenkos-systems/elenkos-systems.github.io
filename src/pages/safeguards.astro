@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Safeguards — Elenkos Systems"
+  description="The security, fairness, audit, isolation, and supply-chain commitments behind independent Elenkos evaluation."
+>
+  <header class="page-hero">
+    <div><p class="eyebrow">Safeguards</p><h1>Blind means data-blind.</h1></div>
+    <aside><p>The operating model depends on controls across storage, APIs, clients, offline sync, reviewer assignment, credits, audit, and deployment—not a hidden box in the interface.</p></aside>
+  </header>
+
+  <section class="section">
+    <div class="cards">
+      <article class="card teal"><p class="kicker">Isolation</p><h3>Sealed AI assessment</h3><p>Before human submission, reviewer projections exclude AI scores, bands, rationale, confidence, model metadata, ordering hints, and consensus outputs.</p></article>
+      <article class="card amber"><p class="kicker">Identity</p><h3>Server-derived actors</h3><p>Tenant, role, reporter, reviewer, and evaluator identity must come from authenticated server context—not trusted request fields or query parameters.</p></article>
+      <article class="card red"><p class="kicker">Assignment</p><h3>Random with exclusions</h3><p>Eligible reviewer selection excludes the reporter, known conflicts, inactive reviewers, and rotation violations, then records an auditable assignment decision.</p></article>
+      <article class="card teal"><p class="kicker">Credits</p><h3>Idempotent and append-only</h3><p>Stable decision keys prevent retries, reordering, or duplicate delivery from minting value twice. Corrections use new entries, not rewritten history.</p></article>
+      <article class="card amber"><p class="kicker">Discrepancy</p><h3>No silent averaging</h3><p>A material AI/human gap creates a visible adjudication case, withholds consensus credits, and requests additional independent human input.</p></article>
+      <article class="card red"><p class="kicker">Supply chain</p><h3>Immutable build inputs</h3><p>Actions and cross-repository sources are pinned, package graphs are frozen, production artifacts are verified, and credentials are not persisted in checkouts.</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-intro">
+      <h2>Current engineering posture.</h2>
+      <p>Elenkos is in active foundation work. These are release gates, not blanket claims that every service is production-ready today.</p>
+    </div>
+    <div class="split">
+      <article>
+        <p class="eyebrow">Before a production pilot</p>
+        <ul class="signal-list">
+          <li>Authentication and authorization negative tests pass</li>
+          <li>Blind-review leakage tests pass in API, UI, client, and offline stores</li>
+          <li>PostgreSQL and CockroachDB migrations execute in real databases</li>
+          <li>Credits, audits, and discrepancy transitions survive retries and concurrency</li>
+        </ul>
+      </article>
+      <article>
+        <p class="eyebrow">Independent evidence</p>
+        <ul class="signal-list">
+          <li>Test-org consumers validate exact production commits</li>
+          <li>Security boundaries are exercised without production credentials</li>
+          <li>Deployments use immutable images and least-privilege identities</li>
+          <li>Residual risk is recorded rather than labeled as a pass</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="callout">
+      <p class="eyebrow">Security reporting</p>
+      <h2>Keep sensitive evidence private.</h2>
+      <p>Do not post customer reports, reviewer identities, AI assessments, credentials, or private endpoints in public issues. Use the repository's private vulnerability reporting channel with minimal synthetic evidence.</p>
+      <div class="actions"><a class="button" href="https://github.com/elenkos-systems/elenkos-systems.github.io/security/advisories/new">Report privately on GitHub</a></div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elenkos-systems.github.io/sitemap-index.xml

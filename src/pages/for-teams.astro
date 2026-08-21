@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="For product teams — Elenkos Systems"
+  description="Independent bug qualification for product teams: reproducible evidence, blind severity review, explicit discrepancies, and auditable outcomes."
+>
+  <header class="page-hero">
+    <div><p class="eyebrow">For product teams</p><h1>Get a reasoned answer, not a ticket count.</h1></div>
+    <aside><p>Elenkos is designed to separate discovery, automated analysis, blind human judgment, and adjudication so your team can see where confidence comes from.</p></aside>
+  </header>
+
+  <section class="section">
+    <div class="cards">
+      <article class="card teal"><p class="kicker">Evidence</p><h3>Reproducible reports</h3><p>Reports carry steps, environment, observed behavior, expected behavior, supporting evidence, and an explicit impact hypothesis.</p></article>
+      <article class="card amber"><p class="kicker">Independence</p><h3>Separate assessments</h3><p>Automated analysis and a randomly assigned human review are kept apart until the human commits an assessment.</p></article>
+      <article class="card red"><p class="kicker">Escalation</p><h3>Visible disagreement</h3><p>Material score gaps become owned adjudication work with additional human input—not an averaged number that hides uncertainty.</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="split">
+      <article>
+        <p class="eyebrow">A pilot should define</p>
+        <ul class="signal-list">
+          <li>Product boundary, environments, data rules, and exclusions</li>
+          <li>Severity rubric, agreement threshold, and adjudication policy</li>
+          <li>Evidence expectations and duplicate handling</li>
+          <li>Delivery format, response windows, and acceptance ownership</li>
+        </ul>
+      </article>
+      <article>
+        <p class="eyebrow">A pilot should deliver</p>
+        <ul class="signal-list">
+          <li>Qualified reports with reproduction evidence</li>
+          <li>Independent assessment records and policy versions</li>
+          <li>Explicit discrepancy cases and adjudication outcomes</li>
+          <li>A sanitized audit trail for every final decision</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="callout">
+      <p class="eyebrow">Foundation status</p>
+      <h2>Production pilots are gated on security evidence.</h2>
+      <p>Authentication, blind-review isolation, ledger idempotency, real-database migrations, client conformance, and deployment controls must pass independent certification before customer data enters the system.</p>
+      <div class="actions"><a class="button" href="/safeguards/">Review the release gates</a></div>
+    </div>
+  </section>
+</BaseLayout>

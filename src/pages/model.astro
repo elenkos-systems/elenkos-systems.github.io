@@ -1,0 +1,56 @@
+---
+import ProcessDiagram from '../components/ProcessDiagram.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="The evaluation model — Elenkos Systems"
+  description="How Elenkos separates AI assessment from blind human review, awards policy-defined credits, and escalates material disagreement."
+>
+  <header class="page-hero">
+    <div><p class="eyebrow">The evaluation model</p><h1>Judgment before consensus.</h1></div>
+    <aside><p>A consensus is meaningful only when neither evaluator coached the other. Elenkos keeps the two assessments independent until the human commits.</p></aside>
+  </header>
+
+  <section class="section">
+    <div class="section-intro">
+      <h2>What happens to a bug report.</h2>
+      <p>Every transition is explicit: intake, independent evaluation, comparison, credit eligibility, or additional human adjudication.</p>
+    </div>
+    <ProcessDiagram />
+  </section>
+
+  <section class="section">
+    <div class="cards">
+      <article class="card teal"><p class="kicker">Lane A</p><h3>Automated assessment</h3><p>The AI assesses severity, meaningfulness, reproducibility, novelty, reach, and evidence quality. The AI assessment stays sealed from the assigned human reviewer until that reviewer submits.</p></article>
+      <article class="card amber"><p class="kicker">Lane B</p><h3>Blind human assessment</h3><p>An eligible QA engineer is randomly assigned with reporter, conflict, activity, and rotation exclusions. The reviewer sees an allowlisted report packet—not AI score, rationale, model, confidence, or ranking hints.</p></article>
+      <article class="card red"><p class="kicker">Decision</p><h3>Compare or escalate</h3><p>Policy-defined agreement can release credits. A material discrepancy creates an adjudication case and requests additional human review before any consensus award.</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="compensation">
+    <div class="split">
+      <article>
+        <p class="eyebrow">Compensation</p>
+        <h2>Flat rate plus evidence-linked upside.</h2>
+        <p>QA engineers and engineers in test work under written flat-rate terms. A report may also qualify for commission-linked credits based on independently reviewed seriousness and meaning.</p>
+        <p>When the AI and blind human review agree within the active policy, both the original reporter and the human reviewer can receive credits. This rewards good discovery and good judgment.</p>
+      </article>
+      <article>
+        <p class="eyebrow">Important distinction</p>
+        <h2>Credits record eligibility, not a promise.</h2>
+        <p>Rates, thresholds, conversion, payment timing, caps, reversals, and eligibility are defined in the applicable engagement terms and policy version. No bug, score, or credit guarantees a commission or payout.</p>
+        <p>Disputed or materially divergent assessments remain on hold for additional human review rather than being silently averaged.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="callout">
+      <p class="eyebrow">The non-negotiable</p>
+      <h2>The human must not see the AI answer first.</h2>
+      <p>Reviewer-facing APIs, clients, offline caches, logs, and interfaces must all preserve that boundary. A visual blindfold is not enough; the data must never enter the reviewer projection before submission.</p>
+      <div class="actions"><a class="button" href="/safeguards/">See the technical commitments</a></div>
+    </div>
+  </section>
+</BaseLayout>

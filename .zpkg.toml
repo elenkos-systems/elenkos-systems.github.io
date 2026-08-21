@@ -1,0 +1,38 @@
+[package]
+org = "elenkos-systems"
+name = "elenkos-systems-github-io"
+version = "0.1.0"
+description = "Static Astro marketing site for Elenkos Systems"
+license = "MIT"
+keywords = ["astro", "elenkos", "github-pages", "qa", "zed-pkg"]
+
+[package.repository]
+vcs = "git"
+url = "https://github.com/elenkos-systems/elenkos-systems.github.io"
+
+[publish]
+include_readme = true
+tag_format = "v{version}"
+smoke_test = "pnpm --dir \"$ZED_PKG_TEST_TARGET\" validate"
+exclude = [
+  ".env",
+  ".env.*",
+  ".vendor/**",
+  ".zed/**",
+  ".zed-pack/**",
+  "node_modules/**",
+  "dist/**",
+  "coverage/**",
+  "*.log",
+  ".DS_Store",
+]
+
+[install]
+dir = ".vendor/.zed"
+
+[targets.site]
+dir = "."
+adapter = "node"
+
+[scripts]
+test = "pnpm validate"

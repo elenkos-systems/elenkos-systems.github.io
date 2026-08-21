@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  ASTRO_TELEMETRY_DISABLED: '1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check out without persisted credentials
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Validate GitHub Actions
+        uses: docker://rhysd/actionlint@sha256:b1934ee5f1c509618f2508e6eb47ee0d3520686341fec936f3b79331f9315667
+        with:
+          args: .github/workflows/ci.yml .github/workflows/pages.yml
+
+      - name: Install verified Zed CLI
+        env:
+          ZED_VERSION: 0.2.3
+          ZED_SHA256: 53e4eb29bd0c7622621cb8f369e4a5bbe3fb79b4ed71bd442b7077ec7d24a2bf
+        shell: bash
+        run: scripts/install-zed-ci.sh
+
+      - name: Validate and materialize the frozen Zed graph
+        run: |
+          zed validate --require-lock
+          zed install --frozen --install-mode copy
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install locked Astro toolchain
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+      - name: Validate source and production artifact
+        run: pnpm validate

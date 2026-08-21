@@ -1,0 +1,23 @@
+---
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+---
+
+<ol class:list={['process', { compact }]} aria-label="Independent evaluation process">
+  <li>
+    <span class="step-number">01</span>
+    <div><strong>AI evaluates</strong><p>Severity, reach, reproducibility, and evidence are scored in a sealed assessment.</p></div>
+  </li>
+  <li>
+    <span class="step-number">02</span>
+    <div><strong>Human reviews blind</strong><p>A randomly assigned, eligible engineer judges the report without AI cues.</p></div>
+  </li>
+  <li>
+    <span class="step-number">03</span>
+    <div><strong>Scores meet after submit</strong><p>Only after independent human submission does the comparison run.</p></div>
+  </li>
+  <li>
+    <span class="step-number">04</span>
+    <div><strong>Credit or escalate</strong><p>Agreement can earn credits for both people. A material gap routes to more humans.</p></div>
+  </li>
+</ol>
