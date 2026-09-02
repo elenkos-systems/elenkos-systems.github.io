@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "elenkos.commercial-entrypoints.v1",
+  "activationState": "prelaunch",
+  "marketingSiteCollectsPersonalData": false,
+  "quote": {
+    "page": "https://elenkos-systems.github.io/quote/",
+    "requestRoute": "https://org.elenkos.systems/quotes/request",
+    "nonBinding": true,
+    "createsFinancialObligation": false
+  },
+  "preInterest": {
+    "page": "https://elenkos-systems.github.io/register-interest/",
+    "organizationRoute": "https://org.elenkos.systems/register-interest",
+    "individualRoute": "https://user.elenkos.systems/register-interest",
+    "createsAccount": false,
+    "createsEnrollment": false
+  },
+  "mutationApi": "https://api.elenkos.systems",
+  "requiredGates": [
+    "rust-web-api-integration",
+    "encrypted-contact-storage",
+    "idempotency-and-withdrawal-tests",
+    "approved-pricing-catalog",
+    "cloudflare-zone-origin-tls-health-cors-abuse-review"
+  ]
+}
