@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { commercialBoundaries, commercialRoutes } from '../data/commercialRoutes';
+---
+
+<BaseLayout
+  title="Register pre-launch interest — Elenkos Systems"
+  description="Choose the organization or individual pre-interest route and review the purpose-limited contact boundary."
+>
+  <header class="page-hero">
+    <div>
+      <p class="eyebrow">Pre-interest · pre-launch</p>
+      <h1>Ask to hear from the right Elenkos team.</h1>
+    </div>
+    <aside>
+      <p>Pre-interest is a versioned, purpose-limited request to be contacted. It creates no account, purchase, tester enrollment, work assignment, or compensation promise.</p>
+    </aside>
+  </header>
+
+  <section class="section">
+    <div class="cards">
+      <article class="card teal">
+        <p class="kicker">Organizations</p>
+        <h3>Pilots and integration planning</h3>
+        <p>Use the organization surface for evaluation-volume planning, security review, integration partnerships, or a later non-binding pilot quote.</p>
+        <div class="actions"><a class="button" href={commercialRoutes.organizationInterest} rel="external nofollow">Review the organization interest route</a></div>
+      </article>
+      <article class="card amber">
+        <p class="kicker">QA engineers</p>
+        <h3>Volunteer beta updates</h3>
+        <p>Use the individual surface to request information about future QA beta opportunities. Interest is not enrollment, employment, or a promise of rewards.</p>
+        <div class="actions"><a class="button" href={commercialRoutes.individualInterest} rel="external nofollow">Review the individual interest route</a></div>
+      </article>
+      <article class="card red">
+        <p class="kicker">Static-site boundary</p>
+        <h3>No personal data is collected here</h3>
+        <p>This GitHub Pages origin has no form, analytics, cookies, executable scripts, or API connection. Any later submission belongs to the reviewed Rust service.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="split">
+      <article>
+        <p class="eyebrow">Required runtime behavior</p>
+        <ul class="signal-list">
+          <li>Explicit email-contact consent tied to a versioned notice</li>
+          <li>Encrypted contact storage and non-reversible internal deduplication</li>
+          <li>Idempotent retries without duplicate enrollment or messaging</li>
+          <li>Short-lived email challenge for withdrawal and deletion</li>
+          <li>Bounded retention, redacted logs, rate limits, and abuse controls</li>
+        </ul>
+      </article>
+      <article>
+        <p class="eyebrow">Current boundary</p>
+        <ul class="signal-list">
+          <li>Account created: {String(commercialBoundaries.interestCreatesAccount)}</li>
+          <li>Program enrollment created: {String(commercialBoundaries.interestCreatesEnrollment)}</li>
+          <li>Personal data collected by this site: {String(commercialBoundaries.marketingSiteCollectsPersonalData)}</li>
+          <li>Activation state: {commercialRoutes.activationState}</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

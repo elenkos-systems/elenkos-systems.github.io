@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { commercialBoundaries, commercialRoutes } from '../data/commercialRoutes';
+---
+
+<BaseLayout
+  title="Request a non-binding quote — Elenkos Systems"
+  description="Review the Elenkos Quote v1 boundary and continue to the pre-launch organization quote surface."
+>
+  <header class="page-hero">
+    <div>
+      <p class="eyebrow">Quote v1 · pre-launch</p>
+      <h1>Scope an evaluation pilot without creating a bill.</h1>
+    </div>
+    <aside>
+      <p>A Quote v1 result is a deterministic, non-binding estimate. It does not create an invoice, subscription, charge, account, work assignment, or tester enrollment.</p>
+    </aside>
+  </header>
+
+  <section class="section">
+    <div class="split">
+      <article>
+        <p class="eyebrow">Information requested by the organization surface</p>
+        <ul class="signal-list">
+          <li>Organization name, country, contact address, and optional HTTPS website</li>
+          <li>Expected monthly evaluation volume and supported platforms</li>
+          <li>Requested pilot, standard, or enterprise service level</li>
+          <li>Data-sensitivity classification and bounded implementation notes</li>
+          <li>Versioned acceptance of the non-binding quote notice</li>
+        </ul>
+      </article>
+      <article>
+        <p class="eyebrow">What this page does not do</p>
+        <ul class="signal-list">
+          <li>It does not collect or transmit personal information.</li>
+          <li>It does not calculate a production price on the static site.</li>
+          <li>It does not create a customer account or payment authorization.</li>
+          <li>It does not promise availability, delivery dates, or service levels.</li>
+          <li>It does not enroll a QA engineer or create an employment relationship.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="callout">
+      <p class="eyebrow">Runtime gate</p>
+      <h2>The organization form remains a pre-launch route.</h2>
+      <p>The Rust web and API services, approved pricing catalog, encrypted intake store, abuse controls, and Cloudflare origin checks must pass before external submissions are enabled. A resolving link alone is not launch evidence.</p>
+      <div class="actions">
+        <a class="button" href={commercialRoutes.quoteRequest} rel="external nofollow">Review the organization quote route</a>
+        <a class="button secondary" href="/safeguards/">Review release safeguards</a>
+      </div>
+      <p class="fine-print">Activation state: {commercialRoutes.activationState}. Financial obligation created: {String(commercialBoundaries.quoteCreatesFinancialObligation)}. Personal data collected by this site: {String(commercialBoundaries.marketingSiteCollectsPersonalData)}.</p>
+    </div>
+  </section>
+</BaseLayout>
