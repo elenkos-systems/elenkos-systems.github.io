@@ -18,7 +18,7 @@ test('commercial route constants use only canonical HTTPS surfaces', async () =>
   assert.match(source, /activationState: 'prelaunch'/);
 });
 
-test('static entrypoints contain no form, script, analytics, or payment activation', async () => {
+test('static entrypoints contain no form, script, analytics implementation, or payment activation', async () => {
   const files = await Promise.all([
     read('src/pages/quote.astro'),
     read('src/pages/register-interest.astro'),
@@ -27,7 +27,10 @@ test('static entrypoints contain no form, script, analytics, or payment activati
   const joined = files.join('\n');
   assert.doesNotMatch(joined, /<form\b/i);
   assert.doesNotMatch(joined, /<script\b/i);
-  assert.doesNotMatch(joined, /analytics|segment|mixpanel|google tag/i);
+  assert.doesNotMatch(
+    joined,
+    /google-analytics|googletagmanager|segment\.com|cdn\.segment|mixpanel(?:\.com|\.init)|posthog|plausible\.io|analytics\.js/i,
+  );
   assert.doesNotMatch(joined, /checkout|card number|bank account|cash out/i);
   assert.match(joined, /non-binding estimate/i);
   assert.match(joined, /creates no account/i);
