@@ -56,7 +56,7 @@ test('Zed graph is frozen and installer verifies a fixed digest', async () => {
 
 test('site build stays Astro-only and credential-free', async () => {
   const pkg = JSON.parse(await read('package.json'));
-  assert.equal(pkg.devDependencies.astro, '7.2.4');
+  assert.equal(pkg.devDependencies.astro, '7.2.8');
   assert.equal(pkg.packageManager, 'pnpm@11.22.0');
   const workflows = `${await read('.github/workflows/ci.yml')}\n${await read('.github/workflows/pages.yml')}`;
   assert.doesNotMatch(workflows, /flutter build|jekyll|hugo/i);
