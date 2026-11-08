@@ -89,7 +89,7 @@ test('negative admission: manifest drift, stale lock, native TS7 and workflow by
     /frozen lock importer must match manifest/);
   assert.throws(() => check(pkg, lock.replace(
     'typescript@6.0.3', 'typescript@7.0.2')),
-    /frozen lock importer must match manifest/);
+    /reject TypeScript 7/);
   assert.throws(() => check(pkg, lock + "\n  '@typescript/typescript-linux-x64@7.0.2':\n    optional: true\n"),
     /reject TypeScript 7/);
   assert.throws(() => check(pkg, lock, ci.replace('--frozen-lockfile --ignore-scripts', '')),
