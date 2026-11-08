@@ -56,7 +56,11 @@ test('Zed graph is frozen and installer verifies a fixed digest', async () => {
 
 test('site build stays Astro-only and credential-free', async () => {
   const pkg = JSON.parse(await read('package.json'));
-  assert.equal(pkg.devDependencies.astro, '7.2.8');
+  // Keep the explicit Astro release pinned and require the frozen importer to agree.
+  assert.equal(pkg.devDependencies.astro, '7.3.2');
+  const lock = await read('pnpm-lock.yaml');
+  assert.match(lock, /^lockfileVersion: '9\.0'$/m);
+  assert.match(lock, /^      astro:\n        specifier: 7\.3\.2\n        version: 7\.3\.2\(/m);
   assert.equal(pkg.packageManager, 'pnpm@11.22.0');
   const workflows = `${await read('.github/workflows/ci.yml')}\n${await read('.github/workflows/pages.yml')}`;
   assert.doesNotMatch(workflows, /flutter build|jekyll|hugo/i);
