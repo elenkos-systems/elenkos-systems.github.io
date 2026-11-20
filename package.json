@@ -15,9 +15,9 @@
     "validate": "pnpm check && pnpm test && pnpm build"
   },
   "devDependencies": {
-    "@astrojs/check": "0.9.10",
-    "@astrojs/sitemap": "3.7.4",
-    "astro": "7.3.2",
+    "@astrojs/check": "0.9.12",
+    "@astrojs/sitemap": "3.7.5",
+    "astro": "7.4.12",
     "typescript": "7.0.2"
   }
 }
